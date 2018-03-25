@@ -1,0 +1,122 @@
+<resources>
+    <string name="app_name">PhoneBook</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_search">Поиск</string>
+    <string name="search_hint">search_hint</string>
+    <string name="search_result">search_result</string>
+
+    <string name="all_contacts">Все</string>
+    <string name="friends">Друзья</string>
+    <string name="people">Люди</string>
+    <string name="animals">Животные</string>
+    <string name="about_program">О программе</string>
+    <string name="exit">Выход</string>
+
+    <string name="add_group_friends">Добавить в группу "Друзья"</string>
+    <string name="add_group_people">Добавить в группу "Люди"</string>
+    <string name="add_group_animals">Добавить в группу "Животные"</string>
+
+    <string-array
+        name="string_array_first_name">
+        <item>Брюс</item>
+        <item>Дональд</item>
+        <item>Ксения</item>
+        <item>Марк</item>
+        <item>Билл</item>
+        <item>Ангела</item>
+        <item>Алексей</item>
+        <item>Сергей</item>
+        <item>Александр</item>
+        <item>Вольфанг</item>
+    </string-array>
+
+    <string-array
+        name="string_array_second_name">
+        <item>Уиллис</item>
+        <item>Трамп</item>
+        <item>Собчак</item>
+        <item>Цукерберг</item>
+        <item>Гейтс</item>
+        <item>Меркель</item>
+        <item>Навальный</item>
+        <item>Бадюк</item>
+        <item>Пушкин</item>
+        <item>Моцарт</item>
+    </string-array>
+
+    <string-array
+        name="string_array_country">
+        <item>США</item>
+        <item>США</item>
+        <item>Россия</item>
+        <item>США</item>
+        <item>США</item>
+        <item>Германия</item>
+        <item>Англия</item>
+        <item>Россия</item>
+        <item>Россия</item>
+        <item>Австрия</item>
+    </string-array>
+
+    <string-array
+        name="string_array_city">
+        <item>Лас Вегас</item>
+        <item>Вашингтон</item>
+        <item>Москва</item>
+        <item>Нью-Йорк</item>
+        <item>Нью-Йорк</item>
+        <item>Берлин</item>
+        <item>Лондон</item>
+        <item>Москва</item>
+        <item>Михайловское</item>
+        <item>Вена</item>
+    </string-array>
+
+    <string-array
+        name="string_array_street">
+        <item>Лас-Вегас-Стрип</item>
+        <item>Капитолийский Холм</item>
+        <item>Рублевское шоссе</item>
+        <item>Уолл-Стрит</item>
+        <item>Уолл-Стрит</item>
+        <item>Солнечная аллея</item>
+        <item>Пикадилли</item>
+        <item>Шаболовка</item>
+        <item>Сельская</item>
+        <item>Грабен</item>
+    </string-array>
+
+    <string-array
+        name="string_array_building_number">
+        <item>28/3</item>
+        <item>1</item>
+        <item>47</item>
+        <item>243</item>
+        <item>498</item>
+        <item>46</item>
+        <item>89</item>
+        <item>37</item>
+        <item>1</item>
+        <item>333</item>
+    </string-array>
+
+    <string-array
+        name="string_array_phone_number">
+        <item>+17021111101</item>
+        <item>+12021111102</item>
+        <item>+74951111103</item>
+        <item>12021111104</item>
+        <item>12021111105</item>
+        <item>+4930111106</item>
+        <item>+4420111107</item>
+        <item>+7495111108</item>
+        <item>+7000111109</item>
+        <item>+4311111110</item>
+    </string-array>
+
+</resources>
