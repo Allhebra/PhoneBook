@@ -3,9 +3,6 @@ package com.bereg.phonebook;
 import android.app.Application;
 import android.util.Log;
 
-import com.bereg.phonebook.di.AppComponent;
-import com.bereg.phonebook.di.DaggerAppComponent;
-
 import ru.terrakok.cicerone.Cicerone;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.Router;
@@ -23,17 +20,12 @@ public class PhoneBookApp extends Application {
     public Router mRouter;
     public NavigatorHolder mNavigatorHolder;
 
-    private static AppComponent appComponent;
-
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
-        appComponent = DaggerAppComponent
-                .builder()
-                .build();
         cicerone = Cicerone.create();
-        Log.e(TAG, String.valueOf(appComponent) + String.valueOf(cicerone));
+        Log.e(TAG, String.valueOf(cicerone));
     }
 
     public NavigatorHolder getNavigatorHolder() {
@@ -50,9 +42,5 @@ public class PhoneBookApp extends Application {
 
     public static PhoneBookApp getInstance() {
         return instance;
-    }
-
-    public static AppComponent getAppComponent() {
-        return appComponent;
     }
 }

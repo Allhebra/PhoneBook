@@ -22,6 +22,7 @@ import com.jakewharton.rxbinding2.widget.RxCompoundButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import ru.terrakok.cicerone.Router;
 
@@ -34,7 +35,7 @@ public class DetailContactFragment extends MvpAppCompatFragment implements Detai
     private static final String TAG = DetailContactFragment.class.getSimpleName();
 
     ContactModel mContact;
-    //CompositeDisposable compositeDisposable = new CompositeDisposable();
+    CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @BindView(R.id.tv_first_name)
     TextView firstName;
@@ -100,8 +101,6 @@ public class DetailContactFragment extends MvpAppCompatFragment implements Detai
         mDetailContactPresenter.getContact(getArguments().getInt("ID"));
         ButterKnife.bind(this, view);
         Log.e(TAG, "onViewCreated: " + getArguments().getInt("ID"));
-
-
     }
 
     @Override
@@ -113,13 +112,12 @@ public class DetailContactFragment extends MvpAppCompatFragment implements Detai
     @Override
     public void onPause() {
         super.onPause();
-        //if (!compositeDisposable.isDisposed()) compositeDisposable.clear();
+        if (!compositeDisposable.isDisposed()) compositeDisposable.clear();
     }
 
     @Override
     public void showContactDetails(ContactModel contactModel) {
 
-        Log.e(TAG, "showContactDetails: " + contactModel + contactModel.getFirstName());
         mContact = contactModel;
 
         firstName.setText(contactModel.getFirstName());
@@ -133,7 +131,7 @@ public class DetailContactFragment extends MvpAppCompatFragment implements Detai
         peoples.setChecked(contactModel.isPeoplesGroupContained());
         animals.setChecked(contactModel.isAnimalsGroupContained());
 
-        RxCompoundButton
+        compositeDisposable.add(RxCompoundButton
                 .checkedChanges(friends)
                 .skipInitialValue()
                 .subscribe(new Consumer<Boolean>() {
@@ -143,9 +141,9 @@ public class DetailContactFragment extends MvpAppCompatFragment implements Detai
                         mContact.setFriendsGroupContained(aBoolean);
                         mDetailContactPresenter.saveContactGroups(mContact);
                     }
-                });
+                }));
 
-        RxCompoundButton
+        compositeDisposable.add(RxCompoundButton
                 .checkedChanges(peoples)
                 .skipInitialValue()
                 .subscribe(new Consumer<Boolean>() {
@@ -155,9 +153,9 @@ public class DetailContactFragment extends MvpAppCompatFragment implements Detai
                         mContact.setPeoplesGroupContained(aBoolean);
                         mDetailContactPresenter.saveContactGroups(mContact);
                     }
-                });
+                }));
 
-        RxCompoundButton
+        compositeDisposable.add(RxCompoundButton
                 .checkedChanges(animals)
                 .skipInitialValue()
                 .subscribe(new Consumer<Boolean>() {
@@ -167,6 +165,6 @@ public class DetailContactFragment extends MvpAppCompatFragment implements Detai
                         mContact.setAnimalsGroupContained(aBoolean);
                         mDetailContactPresenter.saveContactGroups(mContact);
                     }
-                });
+                }));
     }
 }

@@ -50,12 +50,11 @@ public class AllContactsAdapter extends RecyclerView.Adapter<AllContactsAdapter.
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
         Log.e(TAG, "onBindViewHolder:  " + holder + "to" + position + "with" + items.get(position));
-        holder.bind(items.get(position), position);
+        holder.bind(items.get(position));
     }
 
     @Override
     public int getItemCount() {
-        Log.e(TAG, "item count:   " + items.size());
         return items.size();
     }
 
@@ -73,7 +72,7 @@ public class AllContactsAdapter extends RecyclerView.Adapter<AllContactsAdapter.
             itemClicksObservable = RxView.clicks(view);
         }
 
-        void bind(final ContactModel contact, int position) {
+        void bind(final ContactModel contact) {
 
             firstName.setText(contact.getFirstName());
 

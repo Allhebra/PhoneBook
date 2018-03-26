@@ -1,5 +1,6 @@
 package com.bereg.phonebook.domain;
 
+import com.bereg.phonebook.data.SharedPreferencesManager;
 import com.bereg.phonebook.models.ContactModel;
 import com.bereg.phonebook.repositories.ContactsResourceRepositoryImpl;
 import com.bereg.phonebook.repositories.IContactsRepository;
@@ -14,15 +15,18 @@ public class ContactInteractor {
 
     private static final String TAG = ContactInteractor.class.getSimpleName();
 
+    private SharedPreferencesManager mSharedPreferencesManager;
     private IContactsRepository mIContactsRepository;
 
     public ContactInteractor() {
 
+        mSharedPreferencesManager = new SharedPreferencesManager();
         mIContactsRepository = new ContactsResourceRepositoryImpl();
     }
 
     public List<ContactModel> getAllContacts() {
 
-        return mIContactsRepository.getAllContacts();
+        List<ContactModel> contacts = mIContactsRepository.getAllContacts();
+        return mSharedPreferencesManager.readAllContactsGroups(contacts);
     }
 }

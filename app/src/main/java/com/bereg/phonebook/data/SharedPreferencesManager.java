@@ -3,12 +3,15 @@ package com.bereg.phonebook.data;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.LinearLayout;
 
 import com.bereg.phonebook.PhoneBookApp;
 import com.bereg.phonebook.models.ContactModel;
 import com.google.gson.Gson;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import static java.lang.String.valueOf;
@@ -35,6 +38,7 @@ public class SharedPreferencesManager {
 
     public void writeContactGroups(ContactModel contactModel) {
 
+        Log.e(TAG, "writeContactGroups start:   " + mPrefs.getAll());
         boolean isContained = mPrefs.contains(valueOf(contactModel.getId()));
         String json;
 
@@ -44,24 +48,29 @@ public class SharedPreferencesManager {
             contactGroups.put(PEOPLES, contactModel.isPeoplesGroupContained());
             contactGroups.put(ANIMALS, contactModel.isAnimalsGroupContained());
             json = gson.toJson(contactGroups);
+            Log.e(TAG, "IF json:   " + json);
         }else {
-            json = mPrefs.getString(valueOf(contactModel.getId()), "");
+            //json = mPrefs.getString(valueOf(contactModel.getId()), "");
 
-            Map<String, Boolean> contactGroups = gson.fromJson(json, HashMap.class);
+            Map<String, Boolean> contactGroups = new HashMap<>()/*gson.fromJson(json, HashMap.class)*/;
             contactGroups.put(FRIENDS, contactModel.isFriendsGroupContained());
             contactGroups.put(PEOPLES, contactModel.isPeoplesGroupContained());
             contactGroups.put(ANIMALS, contactModel.isAnimalsGroupContained());
             json = gson.toJson(contactGroups);
+            Log.e(TAG, "ELSE json:   " + json);
         }
         SharedPreferences.Editor edit = mPrefs.edit();
         edit.putString(valueOf(contactModel.getId()), json);
         edit.apply();
+        Log.e(TAG, "writeContactGroups end:   " + mPrefs.getAll());
     }
 
     public ContactModel readContactGroups(ContactModel contactModel) {
 
-        String json = mPrefs.getString(valueOf(contactModel.getId()), "");
-        if (!json.equals("")) {
+        boolean isContained = mPrefs.contains(valueOf(contactModel.getId()));
+
+        if (isContained) {
+            String json = mPrefs.getString(valueOf(contactModel.getId()), "");
             Map contactGroups = gson.fromJson(json, HashMap.class);
             Log.e(TAG, "readContactGroups:   " + "json" + json + "json" + contactGroups);
 
@@ -81,7 +90,20 @@ public class SharedPreferencesManager {
             return contactModel;
         }else {
             Log.e(TAG, "else:   " + contactModel.isFriendsGroupContained() + contactModel.isPeoplesGroupContained() + contactModel.isAnimalsGroupContained());
+            contactModel.setFriendsGroupContained(false);
+            contactModel.setPeoplesGroupContained(false);
+            contactModel.setAnimalsGroupContained(false);
             return contactModel;
         }
+    }
+
+    public List<ContactModel> readAllContactsGroups(List<ContactModel> contactModels) {
+
+        for (ContactModel contact : contactModels) {
+            Log.e(TAG, "readAllContactsGroups:   " + contact);
+            readContactGroups(contact);
+            Log.e(TAG, "readAllContactsGroups:   " + contact);
+        }
+        return contactModels;
     }
 }

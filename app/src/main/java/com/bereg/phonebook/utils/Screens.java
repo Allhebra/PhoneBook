@@ -9,4 +9,5 @@ public class Screens {
     public static final String ALL_CONTACTS_SCREEN = "all_contact_screen";
     public static final String GROUP_CONTACTS_SCREEN = "group_contact_screen";
     public static final String DETAIL_CONTACT_SCREEN = "detail_contact_screen";
+    public static final String ABOUT_PROGRAM_SCREEN = "about_program_screen";
 }

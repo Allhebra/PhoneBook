@@ -19,7 +19,6 @@ import ru.terrakok.cicerone.Router;
 @InjectViewState
 public class GroupContactsPresenter extends MvpPresenter<GroupContactsView> {
 
-    private static final String TAG = GroupContactsPresenter.class.getSimpleName();
 
     private ContactGroupsInteractor mContactGroupsInteractor;
     private Router mRouter;
@@ -32,7 +31,8 @@ public class GroupContactsPresenter extends MvpPresenter<GroupContactsView> {
 
     public void getGroupContacts(String groupName) {
 
-        getViewState().showGroupContacts(mContactGroupsInteractor.getContactsByGroupName(groupName));
+        mContacts = mContactGroupsInteractor.getContactsFromPrefsByGroupName(groupName);
+        getViewState().showGroupContacts(mContacts);
     }
 
     public void onSearchTextSubmitted(String keyword) {

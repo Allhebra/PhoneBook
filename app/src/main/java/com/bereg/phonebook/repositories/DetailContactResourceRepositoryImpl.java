@@ -39,6 +39,7 @@ public class DetailContactResourceRepositoryImpl implements IDetailContactReposi
         buildingContainer = resources.getStringArray(R.array.string_array_building_number);
         phoneContainer = resources.getStringArray(R.array.string_array_phone_number);
 
+        contactModel.setId(id);
         contactModel.setFirstName(firstNameContainer[id]);
         contactModel.setSecondName(secondNameContainer[id]);
         contactModel.setCountry(countryContainer[id]);

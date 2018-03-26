@@ -1,7 +1,5 @@
 package com.bereg.phonebook.presentation.presenters;
 
-import android.util.Log;
-
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.bereg.phonebook.presentation.view.MainView;
@@ -16,7 +14,6 @@ import ru.terrakok.cicerone.Router;
 @InjectViewState
 public class MainPresenter extends MvpPresenter<MainView> {
 
-    private static final String TAG = MainPresenter.class.getSimpleName();
 
     private Router mRouter;
 
@@ -47,5 +44,16 @@ public class MainPresenter extends MvpPresenter<MainView> {
     public void onAnimalsClicked() {
 
         mRouter.navigateTo(Screens.GROUP_CONTACTS_SCREEN, "ANIMALS");
+    }
+
+    public void onAboutProgramClicked() {
+
+        mRouter.navigateTo(Screens.ABOUT_PROGRAM_SCREEN);
+    }
+
+    public void onExitClicked() {
+
+        mRouter.finishChain();
+        mRouter.exit();
     }
 }

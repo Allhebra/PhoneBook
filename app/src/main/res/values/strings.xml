@@ -5,6 +5,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="about_program_fragment">"PHONEBOOK
+        программа предназначена для хранения и просмотра контактов
+        Версия приложения 1.0"</string>
 
     <string name="menu_search">Поиск</string>
     <string name="search_hint">search_hint</string>
@@ -21,8 +24,7 @@
     <string name="add_group_people">Добавить в группу "Люди"</string>
     <string name="add_group_animals">Добавить в группу "Животные"</string>
 
-    <string-array
-        name="string_array_first_name">
+    <string-array name="string_array_first_name">
         <item>Брюс</item>
         <item>Дональд</item>
         <item>Ксения</item>
@@ -33,10 +35,19 @@
         <item>Сергей</item>
         <item>Александр</item>
         <item>Вольфанг</item>
+        <item>Винни</item>
+        <item>Пятачок</item>
+        <item>Кот</item>
+        <item>Шарик</item>
+        <item>Дарт</item>
+        <item>Шрэк</item>
+        <item>Нео</item>
+        <item>Тринити</item>
+        <item>Морфеус</item>
+        <item>Мишка</item>
     </string-array>
 
-    <string-array
-        name="string_array_second_name">
+    <string-array name="string_array_second_name">
         <item>Уиллис</item>
         <item>Трамп</item>
         <item>Собчак</item>
@@ -47,10 +58,19 @@
         <item>Бадюк</item>
         <item>Пушкин</item>
         <item>Моцарт</item>
+        <item>Пух</item>
+        <item>""</item>
+        <item>Матроскин</item>
+        <item>""</item>
+        <item>Вейдер</item>
+        <item>""</item>
+        <item>Андерсон</item>
+        <item>""</item>
+        <item>""</item>
+        <item>Япончик</item>
     </string-array>
 
-    <string-array
-        name="string_array_country">
+    <string-array name="string_array_country">
         <item>США</item>
         <item>США</item>
         <item>Россия</item>
@@ -61,10 +81,19 @@
         <item>Россия</item>
         <item>Россия</item>
         <item>Австрия</item>
+        <item>Россия</item>
+        <item>Россия</item>
+        <item>Россия</item>
+        <item>Россия</item>
+        <item>США</item>
+        <item>США</item>
+        <item>США</item>
+        <item>США</item>
+        <item>США</item>
+        <item>Украина</item>
     </string-array>
 
-    <string-array
-        name="string_array_city">
+    <string-array name="string_array_city">
         <item>Лас Вегас</item>
         <item>Вашингтон</item>
         <item>Москва</item>
@@ -75,10 +104,19 @@
         <item>Москва</item>
         <item>Михайловское</item>
         <item>Вена</item>
+        <item>Лес</item>
+        <item>Лес</item>
+        <item>Простоквашино</item>
+        <item>Простоквашино</item>
+        <item>Голливуд</item>
+        <item>Дисней-Ленд</item>
+        <item>Нью-Йорк</item>
+        <item>Нью-Йорк</item>
+        <item>Нью-Йорк</item>
+        <item>Одесса</item>
     </string-array>
 
-    <string-array
-        name="string_array_street">
+    <string-array name="string_array_street">
         <item>Лас-Вегас-Стрип</item>
         <item>Капитолийский Холм</item>
         <item>Рублевское шоссе</item>
@@ -89,10 +127,19 @@
         <item>Шаболовка</item>
         <item>Сельская</item>
         <item>Грабен</item>
+        <item>Дупло</item>
+        <item>Нора</item>
+        <item>Деревенская</item>
+        <item>Деревенская</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>Дерибасовская</item>
     </string-array>
 
-    <string-array
-        name="string_array_building_number">
+    <string-array name="string_array_building_number">
         <item>28/3</item>
         <item>1</item>
         <item>47</item>
@@ -102,11 +149,20 @@
         <item>89</item>
         <item>37</item>
         <item>1</item>
+        <item>33</item>
+        <item>11</item>
+        <item>22</item>
         <item>333</item>
+        <item>333</item>
+        <item>444</item>
+        <item>555</item>
+        <item>777</item>
+        <item>888</item>
+        <item>999</item>
+        <item>12</item>
     </string-array>
 
-    <string-array
-        name="string_array_phone_number">
+    <string-array name="string_array_phone_number">
         <item>+17021111101</item>
         <item>+12021111102</item>
         <item>+74951111103</item>
@@ -117,6 +173,16 @@
         <item>+7495111108</item>
         <item>+7000111109</item>
         <item>+4311111110</item>
+        <item>"нет телефона"</item>
+        <item>"нет телефона"</item>
+        <item>"нет телефона"</item>
+        <item>"нет телефона"</item>
+        <item>"нет телефона"</item>
+        <item>"нет телефона"</item>
+        <item>любой номер</item>
+        <item>любой номер</item>
+        <item>любой номер</item>
+        <item>"нет телефона"</item>
     </string-array>
 
 </resources>

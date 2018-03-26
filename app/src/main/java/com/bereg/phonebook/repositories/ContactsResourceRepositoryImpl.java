@@ -1,7 +1,6 @@
 package com.bereg.phonebook.repositories;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.bereg.phonebook.PhoneBookApp;
 import com.bereg.phonebook.R;
@@ -16,8 +15,7 @@ import java.util.List;
 
 public class ContactsResourceRepositoryImpl implements IContactsRepository {
 
-    private static final String TAG = ContactsResourceRepositoryImpl.class.getSimpleName();
-    private static final int CONTACTS_NUM = 10;
+    private static final int CONTACTS_NUM = 20;
 
     private String[] firstNameContainer = new String[CONTACTS_NUM];
     private String[] secondNameContainer = new String[CONTACTS_NUM];
@@ -52,7 +50,6 @@ public class ContactsResourceRepositoryImpl implements IContactsRepository {
             contact.setBuildingNumber(buildingContainer[i]);
             contact.setPhoneNumber(phoneContainer[i]);
 
-            Log.e(TAG, "for:   " + contact.getId() + contact.getFirstName());
             contactModelList.add(contact);
         }
         return contactModelList;

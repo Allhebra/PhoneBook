@@ -19,14 +19,16 @@ public class SearchOccurrence {
                                                           String keyword) {
 
         if (keyword.equals("")) return contactModels;
-        Iterator<ContactModel> iterator = contactModels.iterator();
+        if (!contactModels.isEmpty()) {
+            Iterator<ContactModel> iterator = contactModels.iterator();
 
-        while (iterator.hasNext()) {
-            ContactModel contact = iterator.next();
-            Log.e(TAG, "while:   " + iterator + contact + contact.getFirstName() + contact.getSecondName());
-            if (!contact.getFirstName().toLowerCase().contains(keyword.toLowerCase())
-                    && !contact.getSecondName().toLowerCase().contains(keyword.toLowerCase())) {
-                iterator.remove();
+            while (iterator.hasNext()) {
+                ContactModel contact = iterator.next();
+                Log.e(TAG, "while:   " + iterator + contact + contact.getFirstName() + contact.getSecondName());
+                if (!contact.getFirstName().toLowerCase().contains(keyword.toLowerCase())
+                        && !contact.getSecondName().toLowerCase().contains(keyword.toLowerCase())) {
+                    iterator.remove();
+                }
             }
         }
         return contactModels;

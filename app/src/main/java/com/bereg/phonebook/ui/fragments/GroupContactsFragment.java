@@ -90,9 +90,6 @@ public class GroupContactsFragment extends MvpAppCompatFragment implements Group
         Log.e(TAG, "onCreateOptionsMenu:   ");
         MenuItem item = menu.findItem(R.id.menu_search);
         SearchView sv = new SearchView(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
-        //MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
-        //item.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        //MenuItemCompat.setActionView(item, sv);
         item.setActionView(sv);
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -113,11 +110,6 @@ public class GroupContactsFragment extends MvpAppCompatFragment implements Group
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-
-        /*switch (menuItem.getItemId()) {
-            case R.id.save_search_result_item:
-                //mVacancyListPresenter.saveSearchResult(vacancies);
-        }*/
         return true;
     }
 

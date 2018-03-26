@@ -22,6 +22,7 @@ import com.bereg.phonebook.PhoneBookApp;
 import com.bereg.phonebook.R;
 import com.bereg.phonebook.presentation.presenters.MainPresenter;
 import com.bereg.phonebook.presentation.view.MainView;
+import com.bereg.phonebook.ui.fragments.AboutProgramFragment;
 import com.bereg.phonebook.ui.fragments.AllContactsFragment;
 import com.bereg.phonebook.ui.fragments.DetailContactFragment;
 import com.bereg.phonebook.ui.fragments.GroupContactsFragment;
@@ -60,6 +61,9 @@ public class MainActivity extends MvpAppCompatActivity
                 case Screens.DETAIL_CONTACT_SCREEN:
                     Log.e(TAG, "DETAIL_CONTACT_SCREEN");
                     return DetailContactFragment.newInstance((int) data);
+                case Screens.ABOUT_PROGRAM_SCREEN:
+                    Log.e(TAG, "ABOUT_PROGRAM_SCREEN");
+                    return AboutProgramFragment.newInstance();
             }
             Log.e(TAG, "NULL");
             return null;
@@ -107,7 +111,6 @@ public class MainActivity extends MvpAppCompatActivity
         super.onResume();
         PhoneBookApp.getInstance().getNavigatorHolder().setNavigator(navigator);
         Log.e(TAG, "onResume");
-        Toast.makeText(MainActivity.this, "ActivityOnResume", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -155,9 +158,9 @@ public class MainActivity extends MvpAppCompatActivity
         } else if (id == R.id.nav_animals) {
             mMainPresenter.onAnimalsClicked();
         } else if (id == R.id.nav_about_program) {
-
+            mMainPresenter.onAboutProgramClicked();
         } else if (id == R.id.nav_exit) {
-
+            mMainPresenter.onExitClicked();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
