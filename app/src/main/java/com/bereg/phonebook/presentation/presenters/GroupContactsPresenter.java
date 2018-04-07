@@ -8,6 +8,7 @@ import com.bereg.phonebook.presentation.view.GroupContactsView;
 import com.bereg.phonebook.utils.Screens;
 import com.bereg.phonebook.utils.SearchOccurrence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ru.terrakok.cicerone.Router;
@@ -23,6 +24,8 @@ public class GroupContactsPresenter extends MvpPresenter<GroupContactsView> {
     private ContactGroupsInteractor mContactGroupsInteractor;
     private Router mRouter;
     private List<ContactModel> mContacts;
+    private List<ContactModel> searchResult;
+    private int lastKeywordSymbolQuantity = 0;
 
     public GroupContactsPresenter(Router router) {
         mRouter = router;
@@ -32,17 +35,28 @@ public class GroupContactsPresenter extends MvpPresenter<GroupContactsView> {
     public void getGroupContacts(String groupName) {
 
         mContacts = mContactGroupsInteractor.getContactsFromPrefsByGroupName(groupName);
+        searchResult = new ArrayList<>(mContacts);
         getViewState().showGroupContacts(mContacts);
     }
 
     public void onSearchTextSubmitted(String keyword) {
 
-        getViewState().showGroupContacts(SearchOccurrence.checkForKeywordOccurrence(mContacts, keyword));
+        getViewState()
+                .showGroupContacts(SearchOccurrence.checkForKeywordOccurrence(searchResult, keyword));
     }
 
     public void onSearchTextChanged(String keyword) {
 
-        getViewState().showGroupContacts(SearchOccurrence.checkForKeywordOccurrence(mContacts, keyword));
+        if (keyword.length() >= lastKeywordSymbolQuantity) {
+        getViewState()
+                .showGroupContacts(SearchOccurrence.checkForKeywordOccurrence(searchResult, keyword));
+            lastKeywordSymbolQuantity = keyword.length();
+        }else {
+            searchResult.clear();
+            searchResult.addAll(mContacts);
+            getViewState()
+                    .showGroupContacts(SearchOccurrence.checkForKeywordOccurrence(searchResult, keyword));
+        }
     }
 
     public void showContactsDetail(ContactModel contact) {
